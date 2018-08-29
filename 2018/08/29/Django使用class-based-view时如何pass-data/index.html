@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="前言出于自学Django框架的目的，我在刷完了Django for Beginners这本书之后开始尝试搭建个人博客。在查找了多种CSS模版之后，我选择了Pure这款模版。同时因为是第一次搭正式的博客，尝试搜索了一下有没有使用同一款模版的博客以便踩坑时参考。后来在知乎上刷如何部署Django项目的时候看到了一个相似的页面，在查看HTML code确认是使用了Pure CSS之后拿来做为了参考，Gi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/08/29/hello-world/index.html">
+<meta property="og:title" content="Django使用class-based view时如何pass data">
+<meta property="og:url" content="http://yoursite.com/2018/08/29/Django使用class-based-view时如何pass-data/index.html">
 <meta property="og:site_name" content="Alan&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言出于自学Django框架的目的，我在刷完了Django for Beginners这本书之后开始尝试搭建个人博客。在查找了多种CSS模版之后，我选择了Pure这款模版。同时因为是第一次搭正式的博客，尝试搜索了一下有没有使用同一款模版的博客以便踩坑时参考。后来在知乎上刷如何部署Django项目的时候看到了一个相似的页面，在查看HTML code确认是使用了Pure CSS之后拿来做为了参考，Gi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-29T00:27:56.615Z">
+<meta property="og:updated_time" content="2018-08-29T02:55:01.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Django使用class-based view时如何pass data">
+<meta name="twitter:description" content="前言出于自学Django框架的目的，我在刷完了Django for Beginners这本书之后开始尝试搭建个人博客。在查找了多种CSS模版之后，我选择了Pure这款模版。同时因为是第一次搭正式的博客，尝试搜索了一下有没有使用同一款模版的博客以便踩坑时参考。后来在知乎上刷如何部署Django项目的时候看到了一个相似的页面，在查看HTML code确认是使用了Pure CSS之后拿来做为了参考，Gi">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/29/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/29/Django使用class-based-view时如何pass-data/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>Hello World | Alan's Blog</title>
+  <title>Django使用class-based view时如何pass data | Alan's Blog</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/Django使用class-based-view时如何pass-data/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alan">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">Django使用class-based view时如何pass data
               
             
           </h1>
@@ -322,9 +322,13 @@
                 
               
 
-              <time title="Created: 2018-08-29 08:27:56" itemprop="dateCreated datePublished" datetime="2018-08-29T08:27:56+08:00">2018-08-29</time>
+              <time title="Created: 2018-08-29 10:31:48 / Modified: 10:55:01" itemprop="dateCreated datePublished" datetime="2018-08-29T10:31:48+08:00">2018-08-29</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -337,8 +341,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/29/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/29/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2018/08/29/Django使用class-based-view时如何pass-data/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/29/Django使用class-based-view时如何pass-data/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -366,15 +370,13 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>出于自学Django框架的目的，我在刷完了<a href="https://djangoforbeginners.com/" target="_blank" rel="noopener">Django for Beginners</a>这本书之后开始尝试搭建个人博客。在查找了多种CSS模版之后，我选择了<a href="https://purecss.io" target="_blank" rel="noopener">Pure</a>这款模版。同时因为是第一次搭正式的博客，尝试搜索了一下有没有使用同一款模版的博客以便踩坑时参考。后来在知乎上刷如何部署Django项目的时候看到了一个相似的<a href="https://zhuanlan.zhihu.com/p/36485803" target="_blank" rel="noopener">页面</a>，在查看HTML code确认是使用了Pure CSS之后拿来做为了参考，GitHub地址为<a href="https://github.com/leeyis/jbt_blog。" target="_blank" rel="noopener">https://github.com/leeyis/jbt_blog。</a></p>
+<p>由于沿用了Django for Beginners一书的格式，我用了Django.views中的view class来创建subclass，并在urls.py中使用as_view method来生成相应的页面。但是当想要在view class来进行一些运算操作时（如当选择某一类别时，需要传入该类别的key，筛选出属于该类别的文章并且传出在模版中进行渲染）遇到了问题。</p>
+<h2 id="解决方法及两种view实现方法的对比"><a href="#解决方法及两种view实现方法的对比" class="headerlink" title="解决方法及两种view实现方法的对比"></a>解决方法及两种view实现方法的对比</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Credit to http://jinbitou.net/2018/03/11/2680.html, function-based view implementation</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_category</span><span class="params">(request, id)</span>:</span>  </span><br><span class="line">    posts = Article.objects.filter(category_id=str(id))</span><br><span class="line">    category = categories.get(id=str(id))</span><br><span class="line">    paginator = Paginator(posts, settings.PAGE_NUM)  </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        page = request.GET.get(<span class="string">'page'</span>)</span><br><span class="line">        post_list = paginator.page(page)</span><br><span class="line">    <span class="keyword">except</span> PageNotAnInteger:</span><br><span class="line">        post_list = paginator.page(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span> EmptyPage:</span><br><span class="line">        post_list = paginator.page(paginator.num_pages)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'category.html'</span>, &#123;<span class="string">'post_list'</span>: post_list, <span class="string">'category_list'</span>: categories, <span class="string">'category'</span>: category&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># class-based view implementation</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CategoryListView</span><span class="params">(ListView)</span>:</span></span><br><span class="line">	model = Article</span><br><span class="line">	template_name = <span class="string">'category.html'</span></span><br><span class="line">	ordering = [<span class="string">'-pub_time'</span>]</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get_context_data</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">		context = super(CategoryListView, self).get_context_data(**kwargs)</span><br><span class="line">		context[<span class="string">'category_list'</span>] = Category.objects.all()</span><br><span class="line">		cat_id = self.kwargs[<span class="string">'pk'</span>]</span><br><span class="line">		cat_objs = Category.objects.filter(id=cat_id)</span><br><span class="line">		cat_obj = <span class="keyword">None</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> cat_objs:</span><br><span class="line">			cat_obj = i</span><br><span class="line">		context[<span class="string">'article_filtered'</span>] = Article.objects.filter(category=cat_obj)</span><br><span class="line">		<span class="keyword">return</span> context</span><br></pre></td></tr></table></figure>
+<p>在自己一番尝试后无效的情况下一度想直接在前端进行逻辑操作，但还是由于这样做会让template文件变得很丑且不想在前端进行太多逻辑操作的原因放弃了这一想法。在继续阅读Django官方文档以及在stack-overflow上进行一番查找之后，我了解到了当使用class-based view时，所有被pass到as_view method中的参数都会被放在self.kwargs中（见<a href="https://stackoverflow.com/a/13528732" target="_blank" rel="noopener">stackoverflow</a>），而在相应template中也可以调用context中的内容，如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for post in article_filtered %&#125;</span><br><span class="line">    anything		</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<p>由此，我们就通过override get_context_data这一函数实现了class-based view的数据传入与传出。</p>
 
       
     </div>
@@ -402,15 +404,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/29/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/29/Django使用class-based-view时如何pass-data/" rel="prev" title="Django使用class-based view时如何pass data">
-                Django使用class-based view时如何pass data <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法及两种view实现方法的对比"><span class="nav-number">2.</span> <span class="nav-text">解决方法及两种view实现方法的对比</span></a></li></ol></div>
             
 
           </div>
