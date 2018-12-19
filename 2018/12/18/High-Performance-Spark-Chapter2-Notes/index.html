@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There are two types of functions defined on RDDs: actions and transformations. Basiclly, transformations jus">
+  <meta name="description" content="Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There a">
 <meta name="keywords" content="Spark,big data">
 <meta property="og:type" content="article">
-<meta property="og:title" content="High Performance Spark Chapter 2 Notes">
+<meta property="og:title" content="High Performance Spark Chapter 2 (How Spark Works) Notes">
 <meta property="og:url" content="http://yoursite.com/2018/12/18/High-Performance-Spark-Chapter2-Notes/index.html">
 <meta property="og:site_name" content="Alan&#39;s Blog">
-<meta property="og:description" content="Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There are two types of functions defined on RDDs: actions and transformations. Basiclly, transformations jus">
+<meta property="og:description" content="Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There a">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T17:27:57.473Z">
+<meta property="og:updated_time" content="2018-12-19T20:58:53.381Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="High Performance Spark Chapter 2 Notes">
-<meta name="twitter:description" content="Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There are two types of functions defined on RDDs: actions and transformations. Basiclly, transformations jus">
+<meta name="twitter:title" content="High Performance Spark Chapter 2 (How Spark Works) Notes">
+<meta name="twitter:description" content="Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There a">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>High Performance Spark Chapter 2 Notes | Alan's Blog</title>
+  <title>High Performance Spark Chapter 2 (How Spark Works) Notes | Alan's Blog</title>
   
 
 
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">High Performance Spark Chapter 2 Notes
+          <h1 class="post-title" itemprop="name headline">High Performance Spark Chapter 2 (How Spark Works) Notes
               
             
           </h1>
@@ -395,7 +395,8 @@
       
 
       
-        <h2 id="Transformations-and-Actions"><a href="#Transformations-and-Actions" class="headerlink" title="Transformations and Actions"></a>Transformations and Actions</h2><p>Spark abstracts large datasets as immutable objects called RDDs. There are two types of functions defined on RDDs: actions and transformations. Basiclly, transformations just set up the computational graph. Transformation functions take in RDDs and return new RDDs for further processing. The real computation will be performed only when there is an action been applied to RDDs. This mechanism is called lazy evaluation.</p>
+        <p>Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks</p>
+<h2 id="Transformations-and-Actions"><a href="#Transformations-and-Actions" class="headerlink" title="Transformations and Actions"></a>Transformations and Actions</h2><p>Spark abstracts large datasets as immutable objects called RDDs. There are two types of functions defined on RDDs: actions and transformations. Basiclly, transformations just set up the computational graph. Transformation functions take in RDDs and return new RDDs for further processing. The real computation will be performed only when there is an action been applied to RDDs. This mechanism is called lazy evaluation.</p>
 <h2 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h2><p>All the transformations can be divided into two categories: transformation with narrow dependencies and transformation with wide dependencies, so what do they mean? In general, for the partitions of the RDD we apply transformation to, we will call them parent partitions, and the result partitions from the transformation will be called child partitions. </p>
 <p>In the book, the definition of narrow dependencies is that “dependencies are only narrow if they can be determined at design time, irrespective of the value of the records in the parent partitions, and if each parent has at most one child partition”, so for example, “filter” and “map” are transformations with narrow dependencies since the transformations on each record only depend on the information within record itself. On the contrary, transformations like “sort” are with wide dependencies since we need to know the data within all the partitions in order to sort.</p>
 <p>For the transformations with wide dependencies, we need to repartition the data in a particular way. In order to do that, Spark adds a “ShuffleDependency” object to the dependency list associated with the RDD. However, shuffles are expensive, especially when work with large data and a great portion of the data needs to be moved. So we should avoid doing expensive shuffle when writing the Spark program.</p>
@@ -795,7 +796,7 @@
       var disqus_config = function () {
         this.page.url = 'http://yoursite.com/2018/12/18/High-Performance-Spark-Chapter2-Notes/';
         this.page.identifier = '2018/12/18/High-Performance-Spark-Chapter2-Notes/';
-        this.page.title = 'High Performance Spark Chapter 2 Notes';
+        this.page.title = 'High Performance Spark Chapter 2 (How Spark Works) Notes';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
