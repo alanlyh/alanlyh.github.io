@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="问题简介最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。 但是同时在写async function时，我遇到了两种不同的情况，一种是func">
-<meta name="keywords" content="JavaScript,Async&#x2F;Await">
+  <meta name="description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
+<meta name="keywords" content="Spark,big data">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Async Function Return Type">
-<meta property="og:url" content="http://yoursite.com/2018/10/03/JavaScript-Async-Function-Return-Type/index.html">
+<meta property="og:title" content="High Performance Spark Chapter 4 (Joins) Notes">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/High-Performance-Spark-Chapter-4-Notes/index.html">
 <meta property="og:site_name" content="Alan&#39;s Blog">
-<meta property="og:description" content="问题简介最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。 但是同时在写async function时，我遇到了两种不同的情况，一种是func">
+<meta property="og:description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T02:19:10.686Z">
+<meta property="og:updated_time" content="2018-12-21T20:40:54.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript Async Function Return Type">
-<meta name="twitter:description" content="问题简介最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。 但是同时在写async function时，我遇到了两种不同的情况，一种是func">
+<meta name="twitter:title" content="High Performance Spark Chapter 4 (Joins) Notes">
+<meta name="twitter:description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/03/JavaScript-Async-Function-Return-Type/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/21/High-Performance-Spark-Chapter-4-Notes/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>JavaScript Async Function Return Type | Alan's Blog</title>
+  <title>High Performance Spark Chapter 4 (Joins) Notes | Alan's Blog</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/03/JavaScript-Async-Function-Return-Type/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/High-Performance-Spark-Chapter-4-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alan">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript Async Function Return Type
+          <h1 class="post-title" itemprop="name headline">High Performance Spark Chapter 4 (Joins) Notes
               
             
           </h1>
@@ -331,7 +331,7 @@
                 
               
 
-              <time title="Created: 2018-10-03 19:45:02" itemprop="dateCreated datePublished" datetime="2018-10-03T19:45:02-04:00">2018-10-03</time>
+              <time title="Created: 2018-12-21 12:40:12" itemprop="dateCreated datePublished" datetime="2018-12-21T12:40:12-05:00">2018-12-21</time>
             
 
             
@@ -349,7 +349,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a></span>
 
                 
                 
@@ -364,10 +364,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/03/JavaScript-Async-Function-Return-Type/#comments" itemprop="discussionUrl">
+                <a href="/2018/12/21/High-Performance-Spark-Chapter-4-Notes/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/03/JavaScript-Async-Function-Return-Type/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/12/21/High-Performance-Spark-Chapter-4-Notes/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,14 +395,23 @@
       
 
       
-        <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。</p>
-<p>但是同时在写async function时，我遇到了两种不同的情况，一种是function直接return一个promise，然后在调用这一function时用await得到结果；而另一种情况则是在function前加async，在function中通过await从一系列asynchronous操作得到结果，最后return这一结果。具体例子如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 情况一</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomethingAync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// something</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 情况二</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doSomethingAync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// do some asynchronous things</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第一种情况下，因为返回的是一个promise，我们可以直接通过<code>await</code>得到结果；但是在第二种情况下我们看到的返回值并不是一个promise，但仍然能使用<code>await</code>来得到执行的结果。对此我产生了一点疑问。</p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>我在stack overflow上找到的一个问题和回答很好地解决了我的疑问</p>
-<p><a href="https://stackoverflow.com/questions/35302431/async-await-implicitly-returns-promise" target="_blank" rel="noopener">async/await implicitly returns promise?</a></p>
-<p>Nathan Wall的回答中提到asynchronous function总是返回promise，如果我们没有明确指定返回promise，返回值将被自行包装成promise，例如上述情况2中，我们看到的return value是result，但实际return的是<code>Promise.resolve(result)</code>。</p>
+        <p>Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdown filters, so we need to think about the ordering of operations when applying core Spark joins.</p>
+<h2 id="RDD-Partition"><a href="#RDD-Partition" class="headerlink" title="RDD Partition"></a>RDD Partition</h2><p>In order to perform join on RDDs, the two RDDs should share a patitioner, otherwise they will need to be shuffled.</p>
+<h2 id="Core-Spark-Join-Type"><a href="#Core-Spark-Join-Type" class="headerlink" title="Core Spark Join Type"></a>Core Spark Join Type</h2><p>There are 4 types of join functions defined on RDD, which are join (inner join), full outer join, left outer join and right outer join. These joins behave just like joins in normal SQL.</p>
+<h2 id="Pre-filter-Before-Join"><a href="#Pre-filter-Before-Join" class="headerlink" title="Pre-filter Before Join"></a>Pre-filter Before Join</h2><p>The book gives a example that we have one RDD with data in the form (panda id, score) and another RDD with (panda id, address), and we want to figure out the highest score for each panda and send it to the corresponding address. </p>
+<p>The first approach to do it is we just join two RDD on panda id and make reduce on panda id by comparing the values of the same key and keeping the large one.</p>
+<p>The second approach is we first make reduce on the score RDD to get the highest score for each panda and then join it with address RDD.</p>
+<p>The second approach will be much more efficient than the first one. Let’s assume for each panda, there will be k scores, then the size of shuffle we need to do in first approach will ne k times the the size of shuffle in second approach.</p>
+<h2 id="Execution-plan"><a href="#Execution-plan" class="headerlink" title="Execution plan"></a>Execution plan</h2><p>The default implementation of joins in core Spark is shuffled hash join, which partitions the second dataset with the same default partioner as the first one so that the keys with the same hash value for both datasets are in the same partition.</p>
+<p>This approach alwaus works, but it can be more expensive than necessary because we may able to avoid shuffle if:</p>
+<ul>
+<li>Both RDDs have a known partioner</li>
+<li>One of the datasets is small enough to fit in memory, so we can do a broadcast hash join</li>
+</ul>
+<h3 id="Speeding-up-joins-by-assigning-a-known-partitioner"><a href="#Speeding-up-joins-by-assigning-a-known-partitioner" class="headerlink" title="Speeding up joins by assigning a known partitioner"></a>Speeding up joins by assigning a known partitioner</h3><p>If we have any operation requires a shuffle before the join, we can add a hash partitioner of the other dataset to the dataset we perform the operation on. By doing that, we can prevent doing shuffle in the join.</p>
+<p>In previous example, we have one RDD with (panda id, score) and the other with (panda id, address). In the pre-filtering process for score RDD, we can add a hash partitioner of address RDD as an arguement to make the result to be in the same partition as address RDD, then we won’t need to do shuffle for the join anymore.</p>
+<h3 id="Speeding-up-joins-using-a-broadcast-hash-join"><a href="#Speeding-up-joins-using-a-broadcast-hash-join" class="headerlink" title="Speeding up joins using a broadcast hash join"></a>Speeding up joins using a broadcast hash join</h3><p>If one RDD is small enough to fit in memory, we can just broadcast it to each partition of the other RDD to perform join.</p>
+<h2 id="Spark-SQL-Joins"><a href="#Spark-SQL-Joins" class="headerlink" title="Spark SQL Joins"></a>Spark SQL Joins</h2><p>Unlike core Spark, the optimizer in Spark SQL is able to do some heavy lifting like pushdown and reorder to make join more efficient. However, since you don’t control the partitioners, you may not be able to manually avoid shuffles as you do with core Spark joins.</p>
 
       
     </div>
@@ -423,9 +432,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/Spark/" rel="tag"># Spark</a>
           
-            <a href="/tags/Async-Await/" rel="tag"># Async/Await</a>
+            <a href="/tags/big-data/" rel="tag"># big data</a>
           
         </div>
       
@@ -438,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/29/Django-class-based-view-pass-data/" rel="next" title="Django使用class-based view时如何pass data">
-                <i class="fa fa-chevron-left"></i> Django使用class-based view时如何pass data
+              <a href="/2018/12/18/High-Performance-Spark-Chapter2-Notes/" rel="next" title="High Performance Spark Chapter 2 (How Spark Works) Notes">
+                <i class="fa fa-chevron-left"></i> High Performance Spark Chapter 2 (How Spark Works) Notes
               </a>
             
           </div>
@@ -447,10 +456,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/18/High-Performance-Spark-Chapter2-Notes/" rel="prev" title="High Performance Spark Chapter 2 (How Spark Works) Notes">
-                High Performance Spark Chapter 2 (How Spark Works) Notes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -622,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题简介"><span class="nav-number">1.</span> <span class="nav-text">问题简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题解决"><span class="nav-number">2.</span> <span class="nav-text">问题解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RDD-Partition"><span class="nav-number">1.</span> <span class="nav-text">RDD Partition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Core-Spark-Join-Type"><span class="nav-number">2.</span> <span class="nav-text">Core Spark Join Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-filter-Before-Join"><span class="nav-number">3.</span> <span class="nav-text">Pre-filter Before Join</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Execution-plan"><span class="nav-number">4.</span> <span class="nav-text">Execution plan</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Speeding-up-joins-by-assigning-a-known-partitioner"><span class="nav-number">4.1.</span> <span class="nav-text">Speeding up joins by assigning a known partitioner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Speeding-up-joins-using-a-broadcast-hash-join"><span class="nav-number">4.2.</span> <span class="nav-text">Speeding up joins using a broadcast hash join</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-SQL-Joins"><span class="nav-number">5.</span> <span class="nav-text">Spark SQL Joins</span></a></li></ol></div>
             
 
           </div>
@@ -786,9 +791,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/10/03/JavaScript-Async-Function-Return-Type/';
-        this.page.identifier = '2018/10/03/JavaScript-Async-Function-Return-Type/';
-        this.page.title = 'JavaScript Async Function Return Type';
+        this.page.url = 'http://yoursite.com/2018/12/21/High-Performance-Spark-Chapter-4-Notes/';
+        this.page.identifier = '2018/12/21/High-Performance-Spark-Chapter-4-Notes/';
+        this.page.title = 'High Performance Spark Chapter 4 (Joins) Notes';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
