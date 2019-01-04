@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Alan&#39;s Blog">
 <meta property="og:description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-04T21:02:56.541Z">
+<meta property="og:updated_time" content="2019-01-04T21:09:53.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="High Performance Spark Chapter 4 (Joins) Notes">
 <meta name="twitter:description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
@@ -401,7 +401,7 @@
 <h2 id="Pre-filter-Before-Join"><a href="#Pre-filter-Before-Join" class="headerlink" title="Pre-filter Before Join"></a>Pre-filter Before Join</h2><p>The book gives an example that we have one RDD with data in the form (panda id, score) and another RDD with (panda id, address), and we want to figure out the highest score for each panda and send it to the corresponding address. </p>
 <p>The first approach to do it is we just join two RDD on panda id and make reduce on panda id by comparing the values of the same key and keeping the large one.</p>
 <p>The second approach is we first make reduce on the score RDD to get the highest score for each panda and then join it with address RDD.</p>
-<p>The second approach will be much more efficient than the first one. Let’s assume for each panda, there will be k scores, then the size of shuffle we need to do in the first approach will be k times the size of shuffle in second approach.</p>
+<p>The second approach will be much more efficient than the first one. Let’s assume for each panda, there will be k scores, then the size of shuffle we need to do in the first approach will be k times the size of shuffle in the second approach.</p>
 <h2 id="Execution-plan"><a href="#Execution-plan" class="headerlink" title="Execution plan"></a>Execution plan</h2><p>The default implementation of joins in core Spark is shuffled hash join, which partitions the second dataset with the same default partitioner as the first one so that the keys with the same hash value for both datasets are in the same partition.</p>
 <p>This approach always works, but it can be more expensive than necessary because we may able to avoid shuffle if:</p>
 <ul>
