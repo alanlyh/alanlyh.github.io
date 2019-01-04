@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Alan&#39;s Blog">
 <meta property="og:description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-21T20:40:54.301Z">
+<meta property="og:updated_time" content="2019-01-04T21:02:56.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="High Performance Spark Chapter 4 (Joins) Notes">
 <meta name="twitter:description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
@@ -396,20 +396,20 @@
 
       
         <p>Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdown filters, so we need to think about the ordering of operations when applying core Spark joins.</p>
-<h2 id="RDD-Partition"><a href="#RDD-Partition" class="headerlink" title="RDD Partition"></a>RDD Partition</h2><p>In order to perform join on RDDs, the two RDDs should share a patitioner, otherwise they will need to be shuffled.</p>
+<h2 id="RDD-Partition"><a href="#RDD-Partition" class="headerlink" title="RDD Partition"></a>RDD Partition</h2><p>In order to perform join on RDDs, the two RDDs should share a partitioner, otherwise, they will need to be shuffled.</p>
 <h2 id="Core-Spark-Join-Type"><a href="#Core-Spark-Join-Type" class="headerlink" title="Core Spark Join Type"></a>Core Spark Join Type</h2><p>There are 4 types of join functions defined on RDD, which are join (inner join), full outer join, left outer join and right outer join. These joins behave just like joins in normal SQL.</p>
-<h2 id="Pre-filter-Before-Join"><a href="#Pre-filter-Before-Join" class="headerlink" title="Pre-filter Before Join"></a>Pre-filter Before Join</h2><p>The book gives a example that we have one RDD with data in the form (panda id, score) and another RDD with (panda id, address), and we want to figure out the highest score for each panda and send it to the corresponding address. </p>
+<h2 id="Pre-filter-Before-Join"><a href="#Pre-filter-Before-Join" class="headerlink" title="Pre-filter Before Join"></a>Pre-filter Before Join</h2><p>The book gives an example that we have one RDD with data in the form (panda id, score) and another RDD with (panda id, address), and we want to figure out the highest score for each panda and send it to the corresponding address. </p>
 <p>The first approach to do it is we just join two RDD on panda id and make reduce on panda id by comparing the values of the same key and keeping the large one.</p>
 <p>The second approach is we first make reduce on the score RDD to get the highest score for each panda and then join it with address RDD.</p>
-<p>The second approach will be much more efficient than the first one. Let’s assume for each panda, there will be k scores, then the size of shuffle we need to do in first approach will ne k times the the size of shuffle in second approach.</p>
-<h2 id="Execution-plan"><a href="#Execution-plan" class="headerlink" title="Execution plan"></a>Execution plan</h2><p>The default implementation of joins in core Spark is shuffled hash join, which partitions the second dataset with the same default partioner as the first one so that the keys with the same hash value for both datasets are in the same partition.</p>
-<p>This approach alwaus works, but it can be more expensive than necessary because we may able to avoid shuffle if:</p>
+<p>The second approach will be much more efficient than the first one. Let’s assume for each panda, there will be k scores, then the size of shuffle we need to do in the first approach will be k times the size of shuffle in second approach.</p>
+<h2 id="Execution-plan"><a href="#Execution-plan" class="headerlink" title="Execution plan"></a>Execution plan</h2><p>The default implementation of joins in core Spark is shuffled hash join, which partitions the second dataset with the same default partitioner as the first one so that the keys with the same hash value for both datasets are in the same partition.</p>
+<p>This approach always works, but it can be more expensive than necessary because we may able to avoid shuffle if:</p>
 <ul>
-<li>Both RDDs have a known partioner</li>
+<li>Both RDDs have a known partitioner</li>
 <li>One of the datasets is small enough to fit in memory, so we can do a broadcast hash join</li>
 </ul>
 <h3 id="Speeding-up-joins-by-assigning-a-known-partitioner"><a href="#Speeding-up-joins-by-assigning-a-known-partitioner" class="headerlink" title="Speeding up joins by assigning a known partitioner"></a>Speeding up joins by assigning a known partitioner</h3><p>If we have any operation requires a shuffle before the join, we can add a hash partitioner of the other dataset to the dataset we perform the operation on. By doing that, we can prevent doing shuffle in the join.</p>
-<p>In previous example, we have one RDD with (panda id, score) and the other with (panda id, address). In the pre-filtering process for score RDD, we can add a hash partitioner of address RDD as an arguement to make the result to be in the same partition as address RDD, then we won’t need to do shuffle for the join anymore.</p>
+<p>In the previous example, we have one RDD with (panda id, score) and the other with (panda id, address). In the pre-filtering process for score RDD, we can add a hash partitioner of address RDD as an argument to make the result to be in the same partition as address RDD, then we won’t need to do shuffle for the join anymore.</p>
 <h3 id="Speeding-up-joins-using-a-broadcast-hash-join"><a href="#Speeding-up-joins-using-a-broadcast-hash-join" class="headerlink" title="Speeding up joins using a broadcast hash join"></a>Speeding up joins using a broadcast hash join</h3><p>If one RDD is small enough to fit in memory, we can just broadcast it to each partition of the other RDD to perform join.</p>
 <h2 id="Spark-SQL-Joins"><a href="#Spark-SQL-Joins" class="headerlink" title="Spark SQL Joins"></a>Spark SQL Joins</h2><p>Unlike core Spark, the optimizer in Spark SQL is able to do some heavy lifting like pushdown and reorder to make join more efficient. However, since you don’t control the partitioners, you may not be able to manually avoid shuffles as you do with core Spark joins.</p>
 
@@ -647,7 +647,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
