@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="前言出于自学Django框架的目的，我在刷完了Django for Beginners这本书之后开始尝试搭建个人博客。由于沿用了Django for Beginners一书的格式，我用了Django.views中的view class来创建subclass，并在urls.py中使用as_view来生成相应的页面。但是当想要在view class来进行一些运算操作时（如当选择某一类别时，需要传入该类">
+  <meta name="description" content="问题简介出于自学Django框架的目的，在刷完了Django for Beginners后我开始尝试搭建个人博客。因为沿用了Django for Beginners一书的格式，我用Django.views中的view class来创建subclass，并在urls.py中用as_view来生成相应的页面。但是当想在view class中进行筛选操作时遇到了问题。 比如当我想实现传入一种文章类别来筛">
 <meta name="keywords" content="Django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Django使用class-based view时如何pass data">
+<meta property="og:title" content="Django中使用class-based view时如何获取传入的参数">
 <meta property="og:url" content="http://yoursite.com/2018/08/29/Django-class-based-view-pass-data/index.html">
 <meta property="og:site_name" content="Alan&#39;s Blog">
-<meta property="og:description" content="前言出于自学Django框架的目的，我在刷完了Django for Beginners这本书之后开始尝试搭建个人博客。由于沿用了Django for Beginners一书的格式，我用了Django.views中的view class来创建subclass，并在urls.py中使用as_view来生成相应的页面。但是当想要在view class来进行一些运算操作时（如当选择某一类别时，需要传入该类">
+<meta property="og:description" content="问题简介出于自学Django框架的目的，在刷完了Django for Beginners后我开始尝试搭建个人博客。因为沿用了Django for Beginners一书的格式，我用Django.views中的view class来创建subclass，并在urls.py中用as_view来生成相应的页面。但是当想在view class中进行筛选操作时遇到了问题。 比如当我想实现传入一种文章类别来筛">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T02:19:23.729Z">
+<meta property="og:updated_time" content="2020-05-16T07:59:13.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Django使用class-based view时如何pass data">
-<meta name="twitter:description" content="前言出于自学Django框架的目的，我在刷完了Django for Beginners这本书之后开始尝试搭建个人博客。由于沿用了Django for Beginners一书的格式，我用了Django.views中的view class来创建subclass，并在urls.py中使用as_view来生成相应的页面。但是当想要在view class来进行一些运算操作时（如当选择某一类别时，需要传入该类">
+<meta name="twitter:title" content="Django中使用class-based view时如何获取传入的参数">
+<meta name="twitter:description" content="问题简介出于自学Django框架的目的，在刷完了Django for Beginners后我开始尝试搭建个人博客。因为沿用了Django for Beginners一书的格式，我用Django.views中的view class来创建subclass，并在urls.py中用as_view来生成相应的页面。但是当想在view class中进行筛选操作时遇到了问题。 比如当我想实现传入一种文章类别来筛">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Django使用class-based view时如何pass data | Alan's Blog</title>
+  <title>Django中使用class-based view时如何获取传入的参数 | Alan's Blog</title>
   
 
 
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Django使用class-based view时如何pass data
+          <h1 class="post-title" itemprop="name headline">Django中使用class-based view时如何获取传入的参数
               
             
           </h1>
@@ -331,7 +331,7 @@
                 
               
 
-              <time title="Created: 2018-08-29 10:31:48" itemprop="dateCreated datePublished" datetime="2018-08-29T10:31:48-04:00">2018-08-29</time>
+              <time title="Created: 2018-08-29 10:31:48" itemprop="dateCreated datePublished" datetime="2018-08-29T10:31:48-07:00">2018-08-29</time>
             
 
             
@@ -395,10 +395,13 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>出于自学Django框架的目的，我在刷完了<a href="https://djangoforbeginners.com/" target="_blank" rel="noopener">Django for Beginners</a>这本书之后开始尝试搭建个人博客。由于沿用了Django for Beginners一书的格式，我用了Django.views中的view class来创建subclass，并在urls.py中使用as_view来生成相应的页面。但是当想要在view class来进行一些运算操作时（如当选择某一类别时，需要传入该类别的key，筛选出属于该类别的文章并且传出在模版中进行渲染）遇到了问题。</p>
-<h2 id="解决方法及两种view实现方法的对比"><a href="#解决方法及两种view实现方法的对比" class="headerlink" title="解决方法及两种view实现方法的对比"></a>解决方法及两种view实现方法的对比</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Credit to http://jinbitou.net/2018/03/11/2680.html, function-based view implementation</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_category</span><span class="params">(request, id)</span>:</span>  </span><br><span class="line">    posts = Article.objects.filter(category_id=str(id))</span><br><span class="line">    category = categories.get(id=str(id))</span><br><span class="line">    paginator = Paginator(posts, settings.PAGE_NUM)  </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        page = request.GET.get(<span class="string">'page'</span>)</span><br><span class="line">        post_list = paginator.page(page)</span><br><span class="line">    <span class="keyword">except</span> PageNotAnInteger:</span><br><span class="line">        post_list = paginator.page(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span> EmptyPage:</span><br><span class="line">        post_list = paginator.page(paginator.num_pages)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'category.html'</span>, &#123;<span class="string">'post_list'</span>: post_list, <span class="string">'category_list'</span>: categories, <span class="string">'category'</span>: category&#125;)</span><br></pre></td></tr></table></figure>
+        <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>出于自学Django框架的目的，在刷完了<a href="https://djangoforbeginners.com/" target="_blank" rel="noopener">Django for Beginners</a>后我开始尝试搭建个人博客。因为沿用了Django for Beginners一书的格式，我用Django.views中的view class来创建subclass，并在urls.py中用as_view来生成相应的页面。但是当想在view class中进行筛选操作时遇到了问题。</p>
+<p>比如当我想实现传入一种文章类别来筛选出属于该类别的文章时，我需要传入该类别的key，并通过与传入值比较是否匹配筛选出属于该类别的文章后将其数据传出，随后利用模版对其进行渲染，对于function-based的实现来说，类别的id作为参数传入是非常直观的，但是对于class-based的实现，获取id的地方并不是那么的一目了然。</p>
+<h2 id="解决方法及两种view实现方法的对比"><a href="#解决方法及两种view实现方法的对比" class="headerlink" title="解决方法及两种view实现方法的对比"></a>解决方法及两种view实现方法的对比</h2><p>首先以下是function-based实现的一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Credit to http://jinbitou.net/2018/03/11/2680.html, function-based view implementation</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_category</span><span class="params">(request, id)</span>:</span>  </span><br><span class="line">    posts = Article.objects.filter(category_id=str(id))</span><br><span class="line">    category = categories.get(id=str(id))</span><br><span class="line">    paginator = Paginator(posts, settings.PAGE_NUM)  </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        page = request.GET.get(<span class="string">'page'</span>)</span><br><span class="line">        post_list = paginator.page(page)</span><br><span class="line">    <span class="keyword">except</span> PageNotAnInteger:</span><br><span class="line">        post_list = paginator.page(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span> EmptyPage:</span><br><span class="line">        post_list = paginator.page(paginator.num_pages)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'category.html'</span>, &#123;<span class="string">'post_list'</span>: post_list, <span class="string">'category_list'</span>: categories, <span class="string">'category'</span>: category&#125;)</span><br></pre></td></tr></table></figure>
+<p>对于class-based的实现，我在一番尝试无效后一度想直接在模版渲染时进行筛选操作，但还是考虑到这样做会让template文件变得很丑，同时不想在前端进行太多逻辑操作而放弃了这一想法。在继续阅读文档后，我了解到当使用class-based view时，所有传入到as_view的参数都会被放在self.kwargs中（见<a href="https://stackoverflow.com/a/13528732" target="_blank" rel="noopener">stackoverflow</a>），示例如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># class-based view implementation</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CategoryListView</span><span class="params">(ListView)</span>:</span></span><br><span class="line">	model = Article</span><br><span class="line">	template_name = <span class="string">'category.html'</span></span><br><span class="line">	ordering = [<span class="string">'-pub_time'</span>]</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get_context_data</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">		context = super(CategoryListView, self).get_context_data(**kwargs)</span><br><span class="line">		context[<span class="string">'category_list'</span>] = Category.objects.all()</span><br><span class="line">		cat_id = self.kwargs[<span class="string">'pk'</span>]</span><br><span class="line">		cat_objs = Category.objects.filter(id=cat_id)</span><br><span class="line">		cat_obj = <span class="keyword">None</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> cat_objs:</span><br><span class="line">			cat_obj = i</span><br><span class="line">		context[<span class="string">'article_filtered'</span>] = Article.objects.filter(category=cat_obj)</span><br><span class="line">		<span class="keyword">return</span> context</span><br></pre></td></tr></table></figure>
-<p>在自己一番尝试后无效的情况下一度想直接在前端进行逻辑操作，但还是由于这样做会让template文件变得很丑且不想在前端进行太多逻辑操作的原因放弃了这一想法。在继续阅读Django官方文档以及在stack-overflow上进行一番查找之后，我了解到了当使用class-based view时，所有被pass到as_view method中的参数都会被放在self.kwargs中（见<a href="https://stackoverflow.com/a/13528732" target="_blank" rel="noopener">stackoverflow</a>），而在相应template中也可以调用context中的内容，如：</p>
+<p>同时在相应template中也可以直接调用context中的内容，比如我们在context中定义了’article_filtered’，那么我们可以通过以下的方式取出数据并进行渲染：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for post in article_filtered %&#125;</span><br><span class="line">    anything		</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
 <p>由此，我们就通过override get_context_data这一函数实现了class-based view的数据传入与传出。</p>
 
@@ -618,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法及两种view实现方法的对比"><span class="nav-number">2.</span> <span class="nav-text">解决方法及两种view实现方法的对比</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题简介"><span class="nav-number">1.</span> <span class="nav-text">问题简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法及两种view实现方法的对比"><span class="nav-number">2.</span> <span class="nav-text">解决方法及两种view实现方法的对比</span></a></li></ol></div>
             
 
           </div>
@@ -638,7 +641,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -784,7 +787,7 @@
       var disqus_config = function () {
         this.page.url = 'http://yoursite.com/2018/08/29/Django-class-based-view-pass-data/';
         this.page.identifier = '2018/08/29/Django-class-based-view-pass-data/';
-        this.page.title = 'Django使用class-based view时如何pass data';
+        this.page.title = 'Django中使用class-based view时如何获取传入的参数';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
