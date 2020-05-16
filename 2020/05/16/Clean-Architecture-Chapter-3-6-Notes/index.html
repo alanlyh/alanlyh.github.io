@@ -1,112 +1,24 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '6.4.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control.">
 <meta property="og:type" content="article">
@@ -114,24 +26,21 @@
 <meta property="og:url" content="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/index.html">
 <meta property="og:site_name" content="Alan&#39;s Blog">
 <meta property="og:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control.">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-16T20:22:34.076Z">
+<meta property="article:published_time" content="2020-05-16T08:37:56.000Z">
+<meta property="article:modified_time" content="2020-05-16T20:22:34.076Z">
+<meta property="article:author" content="Alan">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）">
-<meta name="twitter:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control.">
+
+<link rel="canonical" href="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/">
 
 
-
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'default'
   };
 </script>
 
@@ -143,116 +52,83 @@
 
 
 
-
-
-
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Alan's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Alan's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
 
 
+
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
-  </li>
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
 
-      
-      
-    </ul>
-  
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
-  
+  </li>
+        <li class="menu-item menu-item-categories">
 
-  
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
 </nav>
 
-
-
-  
 
 
 
@@ -260,120 +136,74 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
+
+          <div class="content post posts-expand">
             
 
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Alan">
       <meta itemprop="description" content="Less is More">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Alan's Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-16 01:37:56" itemprop="dateCreated datePublished" datetime="2020-05-16T01:37:56-07:00">2020-05-16</time>
-            
-
-            
-          </span>
+              <time title="Created: 2020-05-16 01:37:56 / Modified: 13:22:34" itemprop="dateCreated datePublished" datetime="2020-05-16T01:37:56-07:00">2020-05-16</time>
+            </span>
 
           
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2020/05/16/Clean-Architecture-Chapter-3-6-Notes/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/16/Clean-Architecture-Chapter-3-6-Notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h2 id="Chapter-3-Paradigm-Overview"><a href="#Chapter-3-Paradigm-Overview" class="headerlink" title="Chapter 3 Paradigm  Overview"></a>Chapter 3 Paradigm  Overview</h2><p>这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:</p>
@@ -393,308 +223,168 @@
 <p>在structured programming中，大的模块可以不断被分解成更小的模块。但是对于每一段程序，我们基本不可能对其进行完整的数学证明来证明其正确性，而是取而代之地以科学的方法（scientific method）证明其正确性。对于科学理论来说，它们是可以被证伪（falsifiable）但不能被证明的（provable）。从数学的角度来看，对于一段程序，测试只能证明其不正确（当测试失败时）但不能证明其正确。但从科学的角度来看，如果有足够的测试显示没有测试失败，我们就可以认为对于我们的目的，这段程序是正确的。当然，这一证明方法的前提是这段代码是可测试的。而当程序中不加限制的goto影响了程序的可测试性时，我们就很难采取这种方法来证明其正确性。</p>
 <p>总而言之，structured programming要求我们把程序分解成许多个可以通过科学方法来证明的小函数。当对于函数进行充足的测试后发现没有失败时，我们可以认为这些小函数足够正确。</p>
 <h2 id="Chapter-5-Object-Oriented-Programming"><a href="#Chapter-5-Object-Oriented-Programming" class="headerlink" title="Chapter 5 Object-Oriented Programming"></a>Chapter 5 Object-Oriented Programming</h2><p>这一章作者问了一个问题，究竟什么是OO（Object-Oriented）？“数据和函数的集合”，这个回答显得太过简单；“一种对于现实世界建模的方法”，这并没有真正说明OO是什么；“封装，继承，多态”，点出了OO是这三者的混合（至少来说一门OO语言需要包含这三种功能）。</p>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>作者指出，OO语言的确提供了简单有效的封装，但是事实上封装早在C这类的非OO语言中出现了。举例如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// point.h</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span>;</span></span><br><span class="line"><span class="function">struct Point* <span class="title">makePoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span> <span class="params">(struct Point *p1, struct Point *p2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// point.c</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">"point.c"</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct Point* <span class="title">makePoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Point</span>* <span class="title">p</span> = <span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">Point</span>));</span></span><br><span class="line">    p-&gt;x = x;</span><br><span class="line">    p-&gt;y = y;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(struct Point* p1, struct Point* p2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = p1-&gt;x - p2-&gt;x;</span><br><span class="line">    <span class="keyword">double</span> dy = p1-&gt;y - p2-&gt;y;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(dx*dx - dy*dy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在使用<code>point.h</code>时我们可以通过<code>makePoint</code>来制点，可以通过<code>distance</code>来计算两点间的距离，但是我们不会知道Point内部的具体实现。这个例子展现了C中完美的封装实现。而到了C++这一OO语言中，由于C++编译器必须知道每个类的实例所占的空间，<code>point.h</code>变成了如下的样子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Point(<span class="keyword">double</span> x, <span class="keyword">double</span> y);</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(<span class="keyword">const</span> Point&amp; p)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>类的内部变量x和y出现在了头文件中，同时当我们需要改变这些成员名字时，我们需要在对应的<code>point.cc</code>中做相应的改动并重新编译。这实际在某种程度上违背了封装的理念。作者也指出，在其他例如Java和C#的语言中，这种头文件和具体实现分离的模式甚至被放弃了，这进一步削弱了封装（个人觉得Java的interface也是类似于头文件与实现分离的方式？作者这里只是一笔提过Java，可能是打算到多态的部分时再具体讨论interface。但的确相比于C中的封装要弱得多）。</p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>作者指出，OO语言的确提供了简单有效的封装，但是事实上封装早在C这类的非OO语言中出现了。举例如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// point.h</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span>;</span></span><br><span class="line"><span class="function">struct Point* <span class="title">makePoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span> <span class="params">(struct Point *p1, struct Point *p2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// point.c</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">"point.c"</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct Point* <span class="title">makePoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Point</span>* <span class="title">p</span> = <span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">Point</span>));</span></span><br><span class="line">    p-&gt;x = x;</span><br><span class="line">    p-&gt;y = y;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(struct Point* p1, struct Point* p2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = p1-&gt;x - p2-&gt;x;</span><br><span class="line">    <span class="keyword">double</span> dy = p1-&gt;y - p2-&gt;y;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(dx*dx - dy*dy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>在使用<code>point.h</code>时我们可以通过<code>makePoint</code>来制点，可以通过<code>distance</code>来计算两点间的距离，但是我们不会知道Point内部的具体实现。这个例子展现了C中完美的封装实现。而到了C++这一OO语言中，由于C++编译器必须知道每个类的实例所占的空间，<code>point.h</code>变成了如下的样子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Point(<span class="keyword">double</span> x, <span class="keyword">double</span> y);</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(<span class="keyword">const</span> Point&amp; p)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>类的内部变量x和y出现在了头文件中，同时当我们需要改变这些成员名字时，我们需要在对应的<code>point.cc</code>中做相应的改动并重新编译。这实际在某种程度上违背了封装的理念。作者也指出，在其他例如Java和C#的语言中，这种头文件和具体实现分离的模式甚至被放弃了，这进一步削弱了封装（个人觉得Java的interface也是类似于头文件与实现分离的方式？作者这里只是一笔提过Java，可能是打算到多态的部分时再具体讨论interface。但的确相比于C中的封装要弱得多）。</p>
 <p>由此，我们可以看出，尽管OO是基于程序员们都会自觉地规避与class内部成员进行交互的前提，但OO并没有加强封装，甚至相对于C削弱了对于封装的限制。</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在之前作者指出，OO并没有给予更好的封装（应该是仅针对严格性，OO语言相对于C的确提供了更为方便的封装）。那么继承呢？实际上在C中，我们也能看到继承的例子，如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// namedPoint.h</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NamedPoint</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="function">struct NamedPoint* <span class="title">NamedPoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y, <span class="keyword">char</span>* name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(struct NamedPoint* np, <span class="keyword">char</span>* name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">getName</span><span class="params">(struct NamedPoint* np)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// namedPoint.c</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NamedPoint</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">    <span class="keyword">char</span>* name;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>在前文Point的基础上，我们又定义了一种NamedPoint类，在实际使用中，我们可以对其进行如下操作<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"distance=%f\n"</span>,</span><br><span class="line">    distance(</span><br><span class="line">        (struct Point*) origin,</span><br><span class="line">        (struct Point*) upperRight</span><br><span class="line">    ));</span><br></pre></td></tr></table></figure></p>
-<p>由此看出，NamedPoint可以被认为是Point的超集，即我们认为说NamedPoint实际上继承了Point（尽管C中没有正式的继承）。另外这其实也是C++中对于继承的实现方法。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在之前作者指出，OO并没有给予更好的封装（应该是仅针对严格性，OO语言相对于C的确提供了更为方便的封装）。那么继承呢？实际上在C中，我们也能看到继承的例子，如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// namedPoint.h</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NamedPoint</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="function">struct NamedPoint* <span class="title">NamedPoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y, <span class="keyword">char</span>* name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(struct NamedPoint* np, <span class="keyword">char</span>* name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">getName</span><span class="params">(struct NamedPoint* np)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// namedPoint.c</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NamedPoint</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">    <span class="keyword">char</span>* name;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure><br>在前文Point的基础上，我们又定义了一种NamedPoint类，在实际使用中，我们可以对其进行如下操作<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"distance=%f\n"</span>,</span><br><span class="line">    distance(</span><br><span class="line">        (struct Point*) origin,</span><br><span class="line">        (struct Point*) upperRight</span><br><span class="line">    ));</span><br></pre></td></tr></table></figure><br>由此看出，NamedPoint可以被认为是Point的超集，即我们认为说NamedPoint实际上继承了Point（尽管C中没有正式的继承）。另外这其实也是C++中对于继承的实现方法。</p>
 <p>由此，我们可以总结说OO并没有在继承上提供一些全新的概念，但是它也的确让继承变得更为方便。然而这仍然没有为“OO是什么”这一问题提供一个很好的答案。</p>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>在C中有没有多态呢，其实也是有的。例如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c==getchar()) != EOF)</span><br><span class="line">        <span class="built_in">putchar</span>(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>函数getchar从STDIN中进行读操作，而putchar对STDOUT进行写操作，但是我们并不知道STDIN和STDOUT具体是什么设备。实际上这里就涉及了多态，这两个函数实际的行为需要视具体的设备而定。而由于C中并没有interface的定义，这里的原理是Unix操作系统规定了所有设备的驱动必须提供5个标准函数open, close, read, write和seek。</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>在C中有没有多态呢，其实也是有的。例如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c==getchar()) != EOF)</span><br><span class="line">        <span class="built_in">putchar</span>(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>函数getchar从STDIN中进行读操作，而putchar对STDOUT进行写操作，但是我们并不知道STDIN和STDOUT具体是什么设备。实际上这里就涉及了多态，这两个函数实际的行为需要视具体的设备而定。而由于C中并没有interface的定义，这里的原理是Unix操作系统规定了所有设备的驱动必须提供5个标准函数open, close, read, write和seek。</p>
 <p>由此看出早在OO语言出现之前，程序员们已经通过使用函数的指针在实际上实现了多态。但是由于对函数指针的使用是极其危险的，这一思想在OO出现之前几乎仅仅在操作系统层面出现，而没有大规模地扩展到应用层面开发。我们说OO的出现虽然没有带来全新的概念，但由于它带来了更为简单安全的多态，才使得这一思想得到大规模地运用。这也照应了我们开头所提到的“Object-oriented programming imposes discipline on indirect transfer of control”。</p>
 <p>如何理解这一说法呢，这是因为多态给予了我们对依赖进行反转的能力。在OO带来简单安全的多态之前，一段程序会通过high-lvel function调用mid-level function，而mid-level又会调用low-level，这是一个很典型的direct transfer of control，以high-level和mid-level间的关系为例，high-level function牢牢地依赖于mid-level function。但当我们在两者之间插入一个interface时，情况就不一样了，在编写high-level function时，我们不再需要考虑mid-level的实现。相反地变成了在编写mid-level时，我们需要依照high-level中的interface来编写程序。<strong>Mid-level成为了high-level的一个插件，而不是依赖。</strong></p>
 <p>这就是OO最重要的一点，我们可以对于任意的代码依赖进行反转，从而在各个模块之间实现解耦。比如对于一个程序，其中的业务逻辑会调用UI和数据库实现，这是一个紧耦合的状态。但是有了依赖反转后，我们可以简单地把UI和数据库作为业务逻辑的插件，使得这三个部分可以作为独立的元件分别开发和部署而不互相影响。综上，对于这一章开头“OO是什么“的问题，我们可以回答说OO是一种能力，一种通过运用多态来获得对代码依赖关系的绝对控制的能力。</p>
 <h2 id="Chapter-6-Functional-Programming"><a href="#Chapter-6-Functional-Programming" class="headerlink" title="Chapter 6 Functional Programming"></a>Chapter 6 Functional Programming</h2>
-      
     </div>
 
     
-
     
     
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/21/High-Performance-Spark-Chapter-4-Notes/" rel="prev" title="High Performance Spark Chapter 4 (Joins) Notes">
+      <i class="fa fa-chevron-left"></i> High Performance Spark Chapter 4 (Joins) Notes
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/12/21/High-Performance-Spark-Chapter-4-Notes/" rel="next" title="High Performance Spark Chapter 4 (Joins) Notes">
-                <i class="fa fa-chevron-left"></i> High Performance Spark Chapter 4 (Joins) Notes
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-
-  </div>
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Alan</p>
-              <p class="site-description motion-element" itemprop="description">Less is More</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">categories</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">tags</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/alanlyh" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:yl3786@columbia.edu" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Paradigm-Overview"><span class="nav-number">1.</span> <span class="nav-text">Chapter 3 Paradigm  Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Structured-Programming"><span class="nav-number">2.</span> <span class="nav-text">Chapter 4 Structured Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Object-Oriented-Programming"><span class="nav-number">3.</span> <span class="nav-text">Chapter 5 Object-Oriented Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">3.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">3.3.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-Functional-Programming"><span class="nav-number">4.</span> <span class="nav-text">Chapter 6 Functional Programming</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Alan</span>
-
   
 
-  
-</div>
-
-
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-	
-    
-
-    
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Paradigm-Overview"><span class="nav-number">1.</span> <span class="nav-text">Chapter 3 Paradigm  Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Structured-Programming"><span class="nav-number">2.</span> <span class="nav-text">Chapter 4 Structured Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Object-Oriented-Programming"><span class="nav-number">3.</span> <span class="nav-text">Chapter 5 Object-Oriented Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">3.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">3.3.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-Functional-Programming"><span class="nav-number">4.</span> <span class="nav-text">Chapter 6 Functional Programming</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alan</p>
+  <div class="site-description" itemprop="description">Less is More</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/luyuanhao" title="GitHub → https://github.com/luyuanhao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yl3786@columbia.edu" title="E-Mail → mailto:yl3786@columbia.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
 
 
 
@@ -703,8 +393,29 @@
 
 
 
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
 
 
 
@@ -721,115 +432,39 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
 
   
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://https-blog-luyuanhao-com.disqus.com/count.js" async></script>
-  
-
-  
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/';
-        this.page.identifier = '2020/05/16/Clean-Architecture-Chapter-3-6-Notes/';
-        this.page.title = 'Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://https-blog-luyuanhao-com.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-blog-luyuanhao-com.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/";
+    this.page.identifier = "2020/05/16/Clean-Architecture-Chapter-3-6-Notes/";
+    this.page.title = "Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-blog-luyuanhao-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>
