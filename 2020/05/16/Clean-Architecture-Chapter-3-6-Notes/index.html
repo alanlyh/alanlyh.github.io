@@ -108,25 +108,24 @@
 
 
 
-  <meta name="description" content="Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There a">
-<meta name="keywords" content="Spark,big data">
+  <meta name="description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control. O">
 <meta property="og:type" content="article">
-<meta property="og:title" content="High Performance Spark Chapter 2 (How Spark Works) Notes">
-<meta property="og:url" content="http://yoursite.com/2018/12/18/High-Performance-Spark-Chapter2-Notes/index.html">
+<meta property="og:title" content="Clean Architecture 阅读笔记（Chapter 3-6）">
+<meta property="og:url" content="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/index.html">
 <meta property="og:site_name" content="Alan&#39;s Blog">
-<meta property="og:description" content="Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There a">
+<meta property="og:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control. O">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-04T21:07:13.462Z">
+<meta property="og:updated_time" content="2020-05-16T09:45:39.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="High Performance Spark Chapter 2 (How Spark Works) Notes">
-<meta name="twitter:description" content="Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks Transformations and ActionsSpark abstracts large datasets as immutable objects called RDDs. There a">
+<meta name="twitter:title" content="Clean Architecture 阅读笔记（Chapter 3-6）">
+<meta name="twitter:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control. O">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/18/High-Performance-Spark-Chapter2-Notes/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/"/>
 
 
 
@@ -136,7 +135,7 @@
   };
 </script>
 
-  <title>High Performance Spark Chapter 2 (How Spark Works) Notes | Alan's Blog</title>
+  <title>Clean Architecture 阅读笔记（Chapter 3-6） | Alan's Blog</title>
   
 
 
@@ -289,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/18/High-Performance-Spark-Chapter2-Notes/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alan">
@@ -306,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">High Performance Spark Chapter 2 (How Spark Works) Notes
+          <h1 class="post-title" itemprop="name headline">Clean Architecture 阅读笔记（Chapter 3-6）
               
             
           </h1>
@@ -331,30 +330,12 @@
                 
               
 
-              <time title="Created: 2018-12-18 19:05:21" itemprop="dateCreated datePublished" datetime="2018-12-18T19:05:21-08:00">2018-12-18</time>
+              <time title="Created: 2020-05-16 01:37:56" itemprop="dateCreated datePublished" datetime="2020-05-16T01:37:56-07:00">2020-05-16</time>
             
 
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -364,10 +345,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/18/High-Performance-Spark-Chapter2-Notes/#comments" itemprop="discussionUrl">
+                <a href="/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/18/High-Performance-Spark-Chapter2-Notes/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2020/05/16/Clean-Architecture-Chapter-3-6-Notes/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,27 +376,24 @@
       
 
       
-        <p>Main Concepts: RDD, transformation/action functions, dependencies, SparkContent, jobs, stages, tasks</p>
-<h2 id="Transformations-and-Actions"><a href="#Transformations-and-Actions" class="headerlink" title="Transformations and Actions"></a>Transformations and Actions</h2><p>Spark abstracts large datasets as immutable objects called RDDs. There are two types of functions defined on RDDs: actions and transformations. Basically, transformations just set up the computational graph. Transformation functions take in RDDs and return new RDDs for further processing. The real computation will be performed only when there is an action been applied to RDDs. This mechanism is called lazy evaluation.</p>
-<h2 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h2><p>All the transformations can be divided into two categories: transformation with narrow dependencies and transformation with wide dependencies, so what do they mean? In general, for the partitions of the RDD that we apply the transformation to, we will call them parent partitions, and the result partitions from the transformation will be called child partitions. </p>
-<p>In the book, the definition of narrow dependencies is that “dependencies are only narrow if they can be determined at design time, irrespective of the value of the records in the parent partitions, and if each parent has at most one child partition”, so for example, “filter” and “map” are transformations with narrow dependencies since the transformations on each record only depend on the information within record itself. On the contrary, transformations like “sort” are with wide dependencies since we need to know the data within all the partitions in order to sort.</p>
-<p>For the transformations with wide dependencies, we need to repartition the data in a particular way. In order to do that, Spark adds a “ShuffleDependency” object to the dependency list associated with the RDD. However, shuffles are expensive, especially when work with large data and a great portion of the data needs to be moved. So we should avoid doing expensive shuffle when writing the Spark program.</p>
-<p>These concepts are important when talking about the definition of Spark jobs, stages, and tasks. (will be mentioned later)</p>
-<h2 id="What-Happens-when-We-Start-SparkContext"><a href="#What-Happens-when-We-Start-SparkContext" class="headerlink" title="What Happens when We Start SparkContext"></a>What Happens when We Start SparkContext</h2><ol>
-<li>Spark driver program pings the cluster manager;</li>
-<li>The cluster manager launches a set of Spark executors (JVMs) on worker nodes;<ul>
-<li>Partitions of RDD will be distributed across executors;</li>
-<li>An executor can contain multiple partitions;</li>
-<li>A partition <strong>cannot</strong> be spread across multiple executors;</li>
+        <h2 id="Chapter-3-Paradigm-Overview"><a href="#Chapter-3-Paradigm-Overview" class="headerlink" title="Chapter 3 Paradigm  Overview"></a>Chapter 3 Paradigm  Overview</h2><p>这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:</p>
+<ul>
+<li>Structured programming imposes discipline on direct transfer of control.</li>
+<li>Object-oriented programming imposes discipline on indirect transfer of control.</li>
+<li>Functional programming imposes discipline upon assignment.</li>
 </ul>
-</li>
-</ol>
-<h2 id="Jobs-Stages-and-Tasks"><a href="#Jobs-Stages-and-Tasks" class="headerlink" title="Jobs, Stages, and Tasks"></a>Jobs, Stages, and Tasks</h2><ul>
-<li>Job: Spark jobs are the highest elements of Spark’s execution hierarchy. Each job corresponds to one action.</li>
-<li>Stage: Before we apply action, there will be some transformations beforehand. As we mentioned before, some transformations are with wide dependencies and we need to shuffle their dependencies in order to perform further computations, so each shuffle will be a stage boundary, the transformations between two boundaries form a stage.</li>
-<li>Task: Task is the smallest unit in the execution hierarchy. Since a stage contains transformations with narrow dependencies, a task will perform these transformations on a piece of the data (and all of the tasks in one stage execute the same code on different pieces). </li>
+<p>同时作者指出，编程范式的作用是remove capacity from the programmer而不是增加。换句话说就是对写代码起约束作用，由于这三种编程范式的总和已经接近于去除了我们所有的能力，所以几乎没有可能出现新的编程范式了。</p>
+<h2 id="Chapter-4-Structured-Programming"><a href="#Chapter-4-Structured-Programming" class="headerlink" title="Chapter 4 Structured Programming"></a>Chapter 4 Structured Programming</h2><p>这一章具体介绍了Structured Programming，这一范式源于Dijkstra对于编程规范的探求。在试图以数学推导来证明程序的正确性时，他发现程序中的某些goto语句大大影响了我们把程序解耦到更小的单位的能力，而另一些goto又可以对应为简单的selection和iteration control structure。这一发现后被Bohm和Jacopini证实所有程序都可以被三种结构所构成：sequence，selection以及iteration。</p>
+<p>Dijkstra指出</p>
+<ul>
+<li>对于sequential statements，可以通过简单的枚举来证明其正确性；</li>
+<li>对于selection，每一条分支都可以通过枚举证明正确性，从而证明selection的正确性；</li>
+<li>对于iteration，则可采用数学归纳法证明，即首先证明起始条件下的正确性，再在假设n正确的前提下证明n+1正确，以此类推可最终证明整个iteration的正确性。</li>
 </ul>
-
+<p>在structured programming中，大的模块可以不断被分解成更小的模块。但是对于每一段程序，我们基本不可能对其进行完整的数学证明来证明其正确性，而是取而代之地以科学的方法（scientific method）证明其正确性。对于科学理论来说，它们是可以被证伪（falsifiable）但不能被证明的（provable）。同样的，对于程序来说，测试只能证明其不正确（当测试失败时）但不能证明其正确性。但如果从科学的角度来看，如果有足够的测试显示没有测试失败，那么我们就可以认为对于我们的目的，这段程序是正确的。当然，这一证明方法的前提是这段代码是可测试的。而当程序中不加限制的goto影响了程序的可测试性时，我们就很难采取这种方法来证明其正确性。</p>
+<p>总而言之，structured programming要求我们把程序分解成许多个可以通过科学方法来证明的小函数。当对于函数进行充足的测试后发现没有失败时，我们可以认为这些小函数足够正确。</p>
+<h2 id="Chapter-5-Object-Oriented-Programming"><a href="#Chapter-5-Object-Oriented-Programming" class="headerlink" title="Chapter 5 Object-Oriented Programming"></a>Chapter 5 Object-Oriented Programming</h2><p>这一章作者问了一个问题，究竟什么是OO（Object-Oriented）？“数据和函数的集合”，这个回答显得太过简单；“一种对于现实世界建模的方法”，这并没有真正说明OO是什么；“封装，继承，多态”，点出了OO是这三者的混合（至少来说一门OO语言需要包含这三种功能）。</p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><h2 id="Chapter-6-Functional-Programming"><a href="#Chapter-6-Functional-Programming" class="headerlink" title="Chapter 6 Functional Programming"></a>Chapter 6 Functional Programming</h2>
       
     </div>
 
@@ -433,14 +411,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Spark/" rel="tag"># Spark</a>
-          
-            <a href="/tags/big-data/" rel="tag"># big data</a>
-          
-        </div>
-      
 
       
       
@@ -450,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/03/JavaScript-Async-Function-Return-Type/" rel="next" title="JavaScript Async Function Return Type">
-                <i class="fa fa-chevron-left"></i> JavaScript Async Function Return Type
+              <a href="/2018/12/21/High-Performance-Spark-Chapter-4-Notes/" rel="next" title="High Performance Spark Chapter 4 (Joins) Notes">
+                <i class="fa fa-chevron-left"></i> High Performance Spark Chapter 4 (Joins) Notes
               </a>
             
           </div>
@@ -459,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/21/High-Performance-Spark-Chapter-4-Notes/" rel="prev" title="High Performance Spark Chapter 4 (Joins) Notes">
-                High Performance Spark Chapter 4 (Joins) Notes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformations-and-Actions"><span class="nav-number">1.</span> <span class="nav-text">Transformations and Actions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependencies"><span class="nav-number">2.</span> <span class="nav-text">Dependencies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-Happens-when-We-Start-SparkContext"><span class="nav-number">3.</span> <span class="nav-text">What Happens when We Start SparkContext</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jobs-Stages-and-Tasks"><span class="nav-number">4.</span> <span class="nav-text">Jobs, Stages, and Tasks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Paradigm-Overview"><span class="nav-number">1.</span> <span class="nav-text">Chapter 3 Paradigm  Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Structured-Programming"><span class="nav-number">2.</span> <span class="nav-text">Chapter 4 Structured Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Object-Oriented-Programming"><span class="nav-number">3.</span> <span class="nav-text">Chapter 5 Object-Oriented Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">3.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">3.3.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-Functional-Programming"><span class="nav-number">4.</span> <span class="nav-text">Chapter 6 Functional Programming</span></a></li></ol></div>
             
 
           </div>
@@ -798,9 +764,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/12/18/High-Performance-Spark-Chapter2-Notes/';
-        this.page.identifier = '2018/12/18/High-Performance-Spark-Chapter2-Notes/';
-        this.page.title = 'High Performance Spark Chapter 2 (How Spark Works) Notes';
+        this.page.url = 'http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/';
+        this.page.identifier = '2020/05/16/Clean-Architecture-Chapter-3-6-Notes/';
+        this.page.title = 'Clean Architecture 阅读笔记（Chapter 3-6）';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
