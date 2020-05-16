@@ -108,17 +108,17 @@
 
 
 
-  <meta name="description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control. O">
+  <meta name="description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Clean Architecture 阅读笔记（Chapter 3-6）">
+<meta property="og:title" content="Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）">
 <meta property="og:url" content="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/index.html">
 <meta property="og:site_name" content="Alan&#39;s Blog">
-<meta property="og:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control. O">
+<meta property="og:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-16T09:45:39.914Z">
+<meta property="og:updated_time" content="2020-05-16T20:22:34.076Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Clean Architecture 阅读笔记（Chapter 3-6）">
-<meta name="twitter:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control. O">
+<meta name="twitter:title" content="Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）">
+<meta name="twitter:description" content="Chapter 3 Paradigm  Overview这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:  Structured programming imposes discipline on direct transfer of control.">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>Clean Architecture 阅读笔记（Chapter 3-6） | Alan's Blog</title>
+  <title>Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式） | Alan's Blog</title>
   
 
 
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Clean Architecture 阅读笔记（Chapter 3-6）
+          <h1 class="post-title" itemprop="name headline">Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）
               
             
           </h1>
@@ -376,7 +376,7 @@
       
 
       
-        <h2 id="Chapter-3-Paradigm-Overview"><a href="#Chapter-3-Paradigm-Overview" class="headerlink" title="Chapter 3 Paradigm  Overview"></a>Chapter 3 Paradigm  Overview</h2><p>这一章介绍了三种编程structured programming, object-oriented programming以及functional programming，并对三者进行了总结:</p>
+        <h2 id="Chapter-3-Paradigm-Overview"><a href="#Chapter-3-Paradigm-Overview" class="headerlink" title="Chapter 3 Paradigm  Overview"></a>Chapter 3 Paradigm  Overview</h2><p>这一章介绍了三种编程范式structured programming, object-oriented programming以及functional programming，并对三者进行了总结:</p>
 <ul>
 <li>Structured programming imposes discipline on direct transfer of control.</li>
 <li>Object-oriented programming imposes discipline on indirect transfer of control.</li>
@@ -390,10 +390,23 @@
 <li>对于selection，每一条分支都可以通过枚举证明正确性，从而证明selection的正确性；</li>
 <li>对于iteration，则可采用数学归纳法证明，即首先证明起始条件下的正确性，再在假设n正确的前提下证明n+1正确，以此类推可最终证明整个iteration的正确性。</li>
 </ul>
-<p>在structured programming中，大的模块可以不断被分解成更小的模块。但是对于每一段程序，我们基本不可能对其进行完整的数学证明来证明其正确性，而是取而代之地以科学的方法（scientific method）证明其正确性。对于科学理论来说，它们是可以被证伪（falsifiable）但不能被证明的（provable）。同样的，对于程序来说，测试只能证明其不正确（当测试失败时）但不能证明其正确性。但如果从科学的角度来看，如果有足够的测试显示没有测试失败，那么我们就可以认为对于我们的目的，这段程序是正确的。当然，这一证明方法的前提是这段代码是可测试的。而当程序中不加限制的goto影响了程序的可测试性时，我们就很难采取这种方法来证明其正确性。</p>
+<p>在structured programming中，大的模块可以不断被分解成更小的模块。但是对于每一段程序，我们基本不可能对其进行完整的数学证明来证明其正确性，而是取而代之地以科学的方法（scientific method）证明其正确性。对于科学理论来说，它们是可以被证伪（falsifiable）但不能被证明的（provable）。从数学的角度来看，对于一段程序，测试只能证明其不正确（当测试失败时）但不能证明其正确。但从科学的角度来看，如果有足够的测试显示没有测试失败，我们就可以认为对于我们的目的，这段程序是正确的。当然，这一证明方法的前提是这段代码是可测试的。而当程序中不加限制的goto影响了程序的可测试性时，我们就很难采取这种方法来证明其正确性。</p>
 <p>总而言之，structured programming要求我们把程序分解成许多个可以通过科学方法来证明的小函数。当对于函数进行充足的测试后发现没有失败时，我们可以认为这些小函数足够正确。</p>
 <h2 id="Chapter-5-Object-Oriented-Programming"><a href="#Chapter-5-Object-Oriented-Programming" class="headerlink" title="Chapter 5 Object-Oriented Programming"></a>Chapter 5 Object-Oriented Programming</h2><p>这一章作者问了一个问题，究竟什么是OO（Object-Oriented）？“数据和函数的集合”，这个回答显得太过简单；“一种对于现实世界建模的方法”，这并没有真正说明OO是什么；“封装，继承，多态”，点出了OO是这三者的混合（至少来说一门OO语言需要包含这三种功能）。</p>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><h2 id="Chapter-6-Functional-Programming"><a href="#Chapter-6-Functional-Programming" class="headerlink" title="Chapter 6 Functional Programming"></a>Chapter 6 Functional Programming</h2>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>作者指出，OO语言的确提供了简单有效的封装，但是事实上封装早在C这类的非OO语言中出现了。举例如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// point.h</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span>;</span></span><br><span class="line"><span class="function">struct Point* <span class="title">makePoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span> <span class="params">(struct Point *p1, struct Point *p2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// point.c</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">"point.c"</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct Point* <span class="title">makePoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Point</span>* <span class="title">p</span> = <span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">Point</span>));</span></span><br><span class="line">    p-&gt;x = x;</span><br><span class="line">    p-&gt;y = y;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(struct Point* p1, struct Point* p2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = p1-&gt;x - p2-&gt;x;</span><br><span class="line">    <span class="keyword">double</span> dy = p1-&gt;y - p2-&gt;y;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(dx*dx - dy*dy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在使用<code>point.h</code>时我们可以通过<code>makePoint</code>来制点，可以通过<code>distance</code>来计算两点间的距离，但是我们不会知道Point内部的具体实现。这个例子展现了C中完美的封装实现。而到了C++这一OO语言中，由于C++编译器必须知道每个类的实例所占的空间，<code>point.h</code>变成了如下的样子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Point(<span class="keyword">double</span> x, <span class="keyword">double</span> y);</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(<span class="keyword">const</span> Point&amp; p)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类的内部变量x和y出现在了头文件中，同时当我们需要改变这些成员名字时，我们需要在对应的<code>point.cc</code>中做相应的改动并重新编译。这实际在某种程度上违背了封装的理念。作者也指出，在其他例如Java和C#的语言中，这种头文件和具体实现分离的模式甚至被放弃了，这进一步削弱了封装（个人觉得Java的interface也是类似于头文件与实现分离的方式？作者这里只是一笔提过Java，可能是打算到多态的部分时再具体讨论interface。但的确相比于C中的封装要弱得多）。</p>
+<p>由此，我们可以看出，尽管OO是基于程序员们都会自觉地规避与class内部成员进行交互的前提，但OO并没有加强封装，甚至相对于C削弱了对于封装的限制。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在之前作者指出，OO并没有给予更好的封装（应该是仅针对严格性，OO语言相对于C的确提供了更为方便的封装）。那么继承呢？实际上在C中，我们也能看到继承的例子，如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// namedPoint.h</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NamedPoint</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="function">struct NamedPoint* <span class="title">NamedPoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y, <span class="keyword">char</span>* name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(struct NamedPoint* np, <span class="keyword">char</span>* name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">getName</span><span class="params">(struct NamedPoint* np)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// namedPoint.c</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NamedPoint</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">    <span class="keyword">char</span>* name;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>在前文Point的基础上，我们又定义了一种NamedPoint类，在实际使用中，我们可以对其进行如下操作<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"distance=%f\n"</span>,</span><br><span class="line">    distance(</span><br><span class="line">        (struct Point*) origin,</span><br><span class="line">        (struct Point*) upperRight</span><br><span class="line">    ));</span><br></pre></td></tr></table></figure></p>
+<p>由此看出，NamedPoint可以被认为是Point的超集，即我们认为说NamedPoint实际上继承了Point（尽管C中没有正式的继承）。另外这其实也是C++中对于继承的实现方法。</p>
+<p>由此，我们可以总结说OO并没有在继承上提供一些全新的概念，但是它也的确让继承变得更为方便。然而这仍然没有为“OO是什么”这一问题提供一个很好的答案。</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>在C中有没有多态呢，其实也是有的。例如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c==getchar()) != EOF)</span><br><span class="line">        <span class="built_in">putchar</span>(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>函数getchar从STDIN中进行读操作，而putchar对STDOUT进行写操作，但是我们并不知道STDIN和STDOUT具体是什么设备。实际上这里就涉及了多态，这两个函数实际的行为需要视具体的设备而定。而由于C中并没有interface的定义，这里的原理是Unix操作系统规定了所有设备的驱动必须提供5个标准函数open, close, read, write和seek。</p>
+<p>由此看出早在OO语言出现之前，程序员们已经通过使用函数的指针在实际上实现了多态。但是由于对函数指针的使用是极其危险的，这一思想在OO出现之前几乎仅仅在操作系统层面出现，而没有大规模地扩展到应用层面开发。我们说OO的出现虽然没有带来全新的概念，但由于它带来了更为简单安全的多态，才使得这一思想得到大规模地运用。这也照应了我们开头所提到的“Object-oriented programming imposes discipline on indirect transfer of control”。</p>
+<p>如何理解这一说法呢，这是因为多态给予了我们对依赖进行反转的能力。在OO带来简单安全的多态之前，一段程序会通过high-lvel function调用mid-level function，而mid-level又会调用low-level，这是一个很典型的direct transfer of control，以high-level和mid-level间的关系为例，high-level function牢牢地依赖于mid-level function。但当我们在两者之间插入一个interface时，情况就不一样了，在编写high-level function时，我们不再需要考虑mid-level的实现。相反地变成了在编写mid-level时，我们需要依照high-level中的interface来编写程序。<strong>Mid-level成为了high-level的一个插件，而不是依赖。</strong></p>
+<p>这就是OO最重要的一点，我们可以对于任意的代码依赖进行反转，从而在各个模块之间实现解耦。比如对于一个程序，其中的业务逻辑会调用UI和数据库实现，这是一个紧耦合的状态。但是有了依赖反转后，我们可以简单地把UI和数据库作为业务逻辑的插件，使得这三个部分可以作为独立的元件分别开发和部署而不互相影响。综上，对于这一章开头“OO是什么“的问题，我们可以回答说OO是一种能力，一种通过运用多态来获得对代码依赖关系的绝对控制的能力。</p>
+<h2 id="Chapter-6-Functional-Programming"><a href="#Chapter-6-Functional-Programming" class="headerlink" title="Chapter 6 Functional Programming"></a>Chapter 6 Functional Programming</h2>
       
     </div>
 
@@ -766,7 +779,7 @@
       var disqus_config = function () {
         this.page.url = 'http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/';
         this.page.identifier = '2020/05/16/Clean-Architecture-Chapter-3-6-Notes/';
-        this.page.title = 'Clean Architecture 阅读笔记（Chapter 3-6）';
+        this.page.title = 'Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
