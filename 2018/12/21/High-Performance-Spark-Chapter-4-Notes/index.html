@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="Less is More">
 <meta property="og:description" content="Both Spark Core and SQL support fundamental types of joins, but the general difference between core Spark joins and Spark SQL joins is that the optimizer in core Spark isn’t able to re-order or pushdo">
 <meta property="article:published_time" content="2018-12-21T20:40:12.000Z">
-<meta property="article:modified_time" content="2019-01-04T21:09:53.187Z">
+<meta property="article:modified_time" content="2021-03-28T16:54:08.475Z">
 <meta property="article:author" content="Alan">
 <meta property="article:tag" content="Spark">
 <meta property="article:tag" content="big data">
@@ -186,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-01-04 13:09:53" itemprop="dateModified" datetime="2019-01-04T13:09:53-08:00">2019-01-04</time>
+                <time title="Modified: 2021-03-28 09:54:08" itemprop="dateModified" datetime="2021-03-28T09:54:08-07:00">2021-03-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,7 +230,7 @@
 <p>The first approach to do it is we just join two RDD on panda id and make reduce on panda id by comparing the values of the same key and keeping the large one.</p>
 <p>The second approach is we first make reduce on the score RDD to get the highest score for each panda and then join it with address RDD.</p>
 <p>The second approach will be much more efficient than the first one. Let’s assume for each panda, there will be k scores, then the size of shuffle we need to do in the first approach will be k times the size of shuffle in the second approach.</p>
-<h2 id="Execution-plan"><a href="#Execution-plan" class="headerlink" title="Execution plan"></a>Execution plan</h2><p>The default implementation of joins in core Spark is shuffled hash join, which partitions the second dataset with the same default partitioner as the first one so that the keys with the same hash value for both datasets are in the same partition.</p>
+<h2 id="Execution-plan"><a href="#Execution-plan" class="headerlink" title="Execution plan"></a>Execution plan</h2><p>The default implementation of joins in core Spark is shuffled hash join (seems like it is wrong in the book since sort merge join is prefered in Spark 2 <a href="https://github.com/apache/spark/blob/v2.2.0/sql/catalyst/src/main/scala/org/apache/spark/sql/internal/SQLConf.scala#L101)" target="_blank" rel="noopener">https://github.com/apache/spark/blob/v2.2.0/sql/catalyst/src/main/scala/org/apache/spark/sql/internal/SQLConf.scala#L101)</a>, which partitions the second dataset with the same default partitioner as the first one so that the keys with the same hash value for both datasets are in the same partition.</p>
 <p>This approach always works, but it can be more expensive than necessary because we may able to avoid shuffle if:</p>
 <ul>
 <li>Both RDDs have a known partitioner</li>
@@ -347,7 +347,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -393,7 +393,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

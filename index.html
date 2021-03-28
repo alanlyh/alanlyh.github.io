@@ -149,6 +149,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/28/Dataflow-Model-Brief-Discussion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="Alan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Less is More">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/28/Dataflow-Model-Brief-Discussion/" class="post-title-link" itemprop="url">浅谈Dataflow model</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-28 10:16:24 / Modified: 11:49:08" itemprop="dateCreated datePublished" datetime="2021-03-28T10:16:24-07:00">2021-03-28</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/03/28/Dataflow-Model-Brief-Discussion/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/28/Dataflow-Model-Brief-Discussion/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在Clubhouse上参与一个《Designing Data-Intensive Application》（后文略称DDIA）的读书讨论。最直观的感受是输入加输出才是最好的学习模式，之前光是凭借阅读的输入，书上的东西的确是学到了，但是因为没有相应的实践机会来刷新这些知识，过一段时间就模糊不清了。所以想着借着这个机会重新开始更新博客（距离上一次更新似乎已经快一年了），一个是通过写写东西帮自己加深理解，另外是希望有机会通过讨论来进一步迭代。</p>
+<p>前几天聊到DDIA中的batch processing章节，这章我之前看的时候是略过的（因为觉得对MapReduce模型派生出的batch processing已经相对了解了），这次完整看下来觉得还是很有帮助，特别是后一部分提到了dataflow model。而在我之前对《Streaming Systems》（后文略称SS）的理解里，只是把dataflow作为流处理的一个抽象模型。这次重新把<a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43864.pdf" target="_blank" rel="noopener">Google Dataflow论文</a>和SS过了一遍，有了一些新的理解。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/28/Dataflow-Model-Brief-Discussion/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -265,7 +346,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-01-04 13:09:53" itemprop="dateModified" datetime="2019-01-04T13:09:53-08:00">2019-01-04</time>
+                <time title="Modified: 2021-03-28 09:54:08" itemprop="dateModified" datetime="2021-03-28T09:54:08-07:00">2021-03-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -457,7 +538,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-12-18 18:19:10" itemprop="dateModified" datetime="2018-12-18T18:19:10-08:00">2018-12-18</time>
+                <time title="Modified: 2021-03-28 10:14:02" itemprop="dateModified" datetime="2021-03-28T10:14:02-07:00">2021-03-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -494,8 +575,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。</p>
-<p>但是同时在写async function时，我遇到了两种不同的情况，一种是function直接return一个promise，然后在调用这一function时用await得到结果；而另一种情况则是在function前加async，在function中通过await从一系列asynchronous操作得到结果，最后return这一结果。具体例子如下：</p>
+          <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。</p>
+<p>但是在对比这两种写法时，我注意到了一点，当不使用async关键词时，function直接return一个promise，在调用这一function时可以用await得到结果；而当使用async关键词时，在function中通过await从一系列asynchronous操作得到结果，最后return这一结果。具体例子如下：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/10/03/JavaScript-Async-Function-Return-Type/#more" rel="contents">
@@ -553,7 +634,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-16 00:59:13" itemprop="dateModified" datetime="2020-05-16T00:59:13-07:00">2020-05-16</time>
+                <time title="Modified: 2021-03-28 10:09:15" itemprop="dateModified" datetime="2021-03-28T10:09:15-07:00">2021-03-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -590,8 +671,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>出于自学Django框架的目的，在刷完了<a href="https://djangoforbeginners.com/" target="_blank" rel="noopener">Django for Beginners</a>后我开始尝试搭建个人博客。因为沿用了Django for Beginners一书的格式，我用Django.views中的view class来创建subclass，并在urls.py中用as_view来生成相应的页面。但是当想在view class中进行筛选操作时遇到了问题。</p>
-<p>比如当我想实现传入一种文章类别来筛选出属于该类别的文章时，我需要传入该类别的key，并通过与传入值比较是否匹配筛选出属于该类别的文章后将其数据传出，随后利用模版对其进行渲染，对于function-based的实现来说，类别的id作为参数传入是非常直观的，但是对于class-based的实现，获取id的地方并不是那么的一目了然。</p>
+          <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>出于自学Django框架的目的，我在刷完了<a href="https://djangoforbeginners.com/" target="_blank" rel="noopener">Django for Beginners</a>后开始尝试搭建博客。因为沿用了Django for Beginners一书的格式，我用Django.views中的view class来创建subclass，并在urls.py中用as_view来生成相应的页面。但是当想在view class中进行筛选操作时遇到了问题。</p>
+<p>比如当我想实现传入一种文章类别来筛选出属于该类别的文章时，我需要传入该类别的key，通过这个key筛选出属于该类别的文章后将其数据传出，随后利用模版对其进行渲染，对于function-based的实现来说，类别的id作为参数传入是非常直观的，但是对于class-based的实现，获取id的地方并不是那么的一目了然。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/08/29/Django-class-based-view-pass-data/#more" rel="contents">
@@ -762,7 +843,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -808,7 +889,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

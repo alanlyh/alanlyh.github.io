@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="前言最近在Clubhouse上参与一个《Designing Data-Intensive Application》（后文略称DDIA）的读书讨论。最直观的感受是输入加输出才是最好的学习模式，之前光是凭借阅读的输入，书上的东西的确是学到了，但是因为没有相应的实践机会来刷新这些知识，过一段时间就模糊不清了。所以想着借着这个机会重新开始更新博客（距离上一次更新似乎已经快一年了），一个是通过写写东西帮自己">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/08/28/hello-world/index.html">
+<meta property="og:title" content="浅谈Dataflow model">
+<meta property="og:url" content="http://yoursite.com/2021/03/28/Dataflow-Model-Brief-Discussion/index.html">
 <meta property="og:site_name" content="Less is More">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="article:published_time" content="2018-08-29T00:27:56.615Z">
-<meta property="article:modified_time" content="2018-08-29T00:27:56.615Z">
+<meta property="og:description" content="前言最近在Clubhouse上参与一个《Designing Data-Intensive Application》（后文略称DDIA）的读书讨论。最直观的感受是输入加输出才是最好的学习模式，之前光是凭借阅读的输入，书上的东西的确是学到了，但是因为没有相应的实践机会来刷新这些知识，过一段时间就模糊不清了。所以想着借着这个机会重新开始更新博客（距离上一次更新似乎已经快一年了），一个是通过写写东西帮自己">
+<meta property="article:published_time" content="2021-03-28T17:16:24.000Z">
+<meta property="article:modified_time" content="2021-03-28T18:49:08.740Z">
 <meta property="article:author" content="Alan">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2018/08/28/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2021/03/28/Dataflow-Model-Brief-Discussion/">
 
 
 <script id="page-configurations">
@@ -44,7 +44,7 @@
   };
 </script>
 
-  <title>Hello World | Less is More</title>
+  <title>浅谈Dataflow model | Less is More</title>
   
 
 
@@ -154,7 +154,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/28/Dataflow-Model-Brief-Discussion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.jpg">
@@ -167,7 +167,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          浅谈Dataflow model
         </h1>
 
         <div class="post-meta">
@@ -176,8 +176,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2018-08-28 17:27:56" itemprop="dateCreated datePublished" datetime="2018-08-28T17:27:56-07:00">2018-08-28</time>
+              <time title="Created: 2021-03-28 10:16:24 / Modified: 11:49:08" itemprop="dateCreated datePublished" datetime="2021-03-28T10:16:24-07:00">2021-03-28</time>
             </span>
 
           
@@ -189,8 +190,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/08/28/hello-world/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/28/hello-world/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/03/28/Dataflow-Model-Brief-Discussion/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/28/Dataflow-Model-Brief-Discussion/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -205,15 +206,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在Clubhouse上参与一个《Designing Data-Intensive Application》（后文略称DDIA）的读书讨论。最直观的感受是输入加输出才是最好的学习模式，之前光是凭借阅读的输入，书上的东西的确是学到了，但是因为没有相应的实践机会来刷新这些知识，过一段时间就模糊不清了。所以想着借着这个机会重新开始更新博客（距离上一次更新似乎已经快一年了），一个是通过写写东西帮自己加深理解，另外是希望有机会通过讨论来进一步迭代。</p>
+<p>前几天聊到DDIA中的batch processing章节，这章我之前看的时候是略过的（因为觉得对MapReduce模型派生出的batch processing已经相对了解了），这次完整看下来觉得还是很有帮助，特别是后一部分提到了dataflow model。而在我之前对《Streaming Systems》（后文略称SS）的理解里，只是把dataflow作为流处理的一个抽象模型。这次重新把<a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43864.pdf" target="_blank" rel="noopener">Google Dataflow论文</a>和SS过了一遍，有了一些新的理解。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>首先dataflow区别了bounded/unbounded data与batch/streaming。尽管这一对术语看起来是一一对应的，但是当我们在说batch和steaming processing的时候，我们实际上已经预设了将要使用的处理引擎（即流处理引擎还是批处理引擎）。正如《Clean Architecture》一书中提到的，我们在做design的时候应该尽可能地把这一决定往后延迟。因为无论选择什么引擎，这些都是实现细节，不应该过早地介入到做design的阶段。而bounded/unbounded的概念更倾向于描述数据的本质，属于业务逻辑和需求层面，不至于太早地引入细节进而导致太过紧密的耦合。</p>
+<p>Dataflow提供了一个相对于batch/processing更高层的抽象。在模型中，unbounded data才是现实世界中更加宽泛自然的一个概念，而bounded data只是一个特殊情况。模型从What，Where，When，How四个问题展开描述。</p>
+<ul>
+<li><p>“What”我们对于数据进行怎样的操作，这一部分与传统的batch processing概念中的各种操作（如map，filter，aggregate，join等）大体一致，就不展开了。</p>
+</li>
+<li><p>“Where”指的是划定数据处理发生的边界，在业务逻辑中，这个边界可能是每小时（fixed window or sliding window），也可能是一个用户在一次登录期间（session window）。且前文之所以说bounded data（以及batch processing）只是一种特殊情况，其中的一个原因是在这种情况下，窗口在处理开始时被预先划分了，且不会有新的数据加入产生新的窗口。</p>
+</li>
+<li><p>”When“指的是每个窗口中的结果将如何被获取。这里需要引入一个叫Watermark的概念，它代表着当系统收到一个watermark的时候，发生在watermark之前的数据都已经被处理完了（理想情况，实际上由于分布式系统中的不可靠传输，会有数据晚到的情况）。我们可以想象这么一个坐标系，X轴是单条数据实际发生的时间，Y轴是我们处理该数据的时间。那么处理所有数据的过程实际上就是水位从最开始的处理时间不断上涨的过程（<a href="http://streamingsystems.net/fig/2-10" target="_blank" rel="noopener">见动图</a>）。而对于每一个window的处理会在到达watermark（可译作水位线）时停下（可以对晚到的数据做额外操作或者直接丢弃，由具体实现决定），我猜想这大概就是watermark这一概念的由来。那么我们可以想象一下在batch processing中，水位线将会是一条水平线，因为我们需要到所有数据都处理完成之后才能结束操作。而streaming process之所以能提供更好的latency也正是因为它提前释放了相对更早的window，但是相应的也会有completeness层面的风险，即数据丢失和延迟等等。</p>
+<p>处理结果也不单单只在watermark处发生，用户也可以自行定义trigger，如每隔多少时间或者每隔多少条数据获取一次结果。Trigger可以发生在watermark之前和之后。</p>
+</li>
+<li><p>“How”代表了当处理结果生成后，我们会怎样使用，即会丢弃原先的数据；在原先数据的基础上加上新数据；或者是将原先数据中的一部分减去之后再加上新数据（具体例子是当一条新数据会使两个session window合并的情况下，需要分别去除两个旧window的结果，并加上新window的结果）。这部分让我联想到了Hudi这些data lake文件格式的增量处理，也许这也是Hudi现在正在试图用Flink作为底层实现的一个原因吧，但是由于我对于这一块并不是很熟悉，也就不展开了。</p>
+</li>
+</ul>
+<p>此外SS中也提到了如何用catalog和bloom filter来实现exactly once的保证。但这些具体的实现是由引擎自身决定的，如Flink采取了checkpoint在不间断处理的情况下对系统进行快照，当一个节点挂掉时，会把被波及的节点会滚到上一个checkpoint。Checkpoint之后的数据虽然在系统内部会不止一次经过节点，但是节点只会在checkpoint发生之后将checkpoint之前的数据反应给外部系统，所以实际上我们假装在checkpoint之后和下一个checkpoint之前的处理实际上不存在。</p>
+<p>另外一个有意思的点是SS提出了一个“表-流相对论”的概念，即表的增量（类似WAL）即是流，流积累起来就成了表。无论一个系统是基于流还是基于表，中间的过程都是流和表在不停交替（因为表到表必须经过流），系统只是做了将某部分抽象起来的决定，如一个基于表的系统会将所有的流处理都封装起来只暴露表的接口。</p>
 
     </div>
 
@@ -228,11 +237,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2018/08/29/Django-class-based-view-pass-data/" rel="next" title="Django中使用class-based view时如何获取传入的参数">
-      Django中使用class-based view时如何获取传入的参数 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/05/16/Clean-Architecture-Chapter-3-6-Notes/" rel="prev" title="Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）">
+      <i class="fa fa-chevron-left"></i> Clean Architecture 阅读笔记（Chapter 3-6 三种编程范式）
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -298,7 +307,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -432,9 +441,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2018/08/28/hello-world/";
-    this.page.identifier = "2018/08/28/hello-world/";
-    this.page.title = "Hello World";
+    this.page.url = "http://yoursite.com/2021/03/28/Dataflow-Model-Brief-Discussion/";
+    this.page.identifier = "2021/03/28/Dataflow-Model-Brief-Discussion/";
+    this.page.title = "浅谈Dataflow model";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

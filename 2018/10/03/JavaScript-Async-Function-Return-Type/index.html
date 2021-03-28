@@ -20,14 +20,14 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="问题简介最近在写microservice的课程project时尝试使用了JavaScript的“async&#x2F;await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。 但是同时在写async function时，我遇到了两种不同的情况，一种是func">
+  <meta name="description" content="问题简介最近在写microservice的课程project时尝试使用了JavaScript的“async&#x2F;await”语法来实现一些asynchronous function，这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。 但是在对比这两种写法时，我注意到了一点，当不使用async关键词时，function直接return一个promise，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Async Function Return Type">
 <meta property="og:url" content="http://yoursite.com/2018/10/03/JavaScript-Async-Function-Return-Type/index.html">
 <meta property="og:site_name" content="Less is More">
-<meta property="og:description" content="问题简介最近在写microservice的课程project时尝试使用了JavaScript的“async&#x2F;await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。 但是同时在写async function时，我遇到了两种不同的情况，一种是func">
+<meta property="og:description" content="问题简介最近在写microservice的课程project时尝试使用了JavaScript的“async&#x2F;await”语法来实现一些asynchronous function，这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。 但是在对比这两种写法时，我注意到了一点，当不使用async关键词时，function直接return一个promise，">
 <meta property="article:published_time" content="2018-10-04T02:45:02.000Z">
-<meta property="article:modified_time" content="2018-12-19T02:19:10.686Z">
+<meta property="article:modified_time" content="2021-03-28T17:14:02.476Z">
 <meta property="article:author" content="Alan">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Async&#x2F;Await">
@@ -186,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-12-18 18:19:10" itemprop="dateModified" datetime="2018-12-18T18:19:10-08:00">2018-12-18</time>
+                <time title="Modified: 2021-03-28 10:14:02" itemprop="dateModified" datetime="2021-03-28T10:14:02-07:00">2021-03-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,14 +223,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，使用下来的观感就是写得真的爽，不得不说这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。</p>
-<p>但是同时在写async function时，我遇到了两种不同的情况，一种是function直接return一个promise，然后在调用这一function时用await得到结果；而另一种情况则是在function前加async，在function中通过await从一系列asynchronous操作得到结果，最后return这一结果。具体例子如下：</p>
+        <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>最近在写microservice的课程project时尝试使用了JavaScript的“async/await”语法来实现一些asynchronous function，这样的写法相较于使用promise更容易且代码可读性更高（虽然用promise的写法已经很易读了）。</p>
+<p>但是在对比这两种写法时，我注意到了一点，当不使用async关键词时，function直接return一个promise，在调用这一function时可以用await得到结果；而当使用async关键词时，在function中通过await从一系列asynchronous操作得到结果，最后return这一结果。具体例子如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 情况一</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomethingAync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// something</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 情况二</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doSomethingAync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// do some asynchronous things</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第一种情况下，因为返回的是一个promise，我们可以直接通过<code>await</code>得到结果；但是在第二种情况下我们看到的返回值并不是一个promise，但仍然能使用<code>await</code>来得到执行的结果。对此我产生了一点疑问。</p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>我在stack overflow上找到的一个问题和回答很好地解决了我的疑问</p>
+<p>在第一种情况下，因为返回的是一个promise，我们可以直接通过<code>await</code>得到结果；但是在第二种情况下我们看到的返回值并不是一个promise，但仍然能使用<code>await</code>来得到执行的结果。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>根据stackoverflow上的回答</p>
 <p><a href="https://stackoverflow.com/questions/35302431/async-await-implicitly-returns-promise" target="_blank" rel="noopener">async/await implicitly returns promise?</a></p>
-<p>Nathan Wall的回答中提到asynchronous function总是返回promise，如果我们没有明确指定返回promise，返回值将被自行包装成promise，例如上述情况2中，我们看到的return value是result，但实际return的是<code>Promise.resolve(result)</code>。</p>
+<p>asynchronous function总是返回promise，如果我们没有明确指定返回promise，返回值将被自行包装成promise，例如上述情况2中，我们看到的return value是result，但实际return的是<code>Promise.resolve(result)</code>。</p>
 
     </div>
 
@@ -338,7 +338,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -384,7 +384,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
