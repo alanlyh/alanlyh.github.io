@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="Less is More">
 <meta property="og:description" content="前言最近在Clubhouse上参与一个《Designing Data-Intensive Application》（后文略称DDIA）的读书讨论。最直观的感受是输入加输出才是最好的学习模式，之前光是凭借阅读的输入，书上的东西的确是学到了，但是因为没有相应的实践机会来刷新这些知识，过一段时间就模糊不清了。所以想着借着这个机会重新开始更新博客（距离上一次更新似乎已经快一年了），一个是通过写写东西帮自己">
 <meta property="article:published_time" content="2021-03-28T17:16:24.000Z">
-<meta property="article:modified_time" content="2021-04-09T22:41:28.999Z">
+<meta property="article:modified_time" content="2021-04-09T22:51:30.585Z">
 <meta property="article:author" content="Yuanhao">
 <meta name="twitter:card" content="summary">
 
@@ -184,7 +184,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-04-09 15:41:28" itemprop="dateModified" datetime="2021-04-09T15:41:28-07:00">2021-04-09</time>
+                <time title="Modified: 2021-04-09 15:51:30" itemprop="dateModified" datetime="2021-04-09T15:51:30-07:00">2021-04-09</time>
               </span>
 
           
@@ -228,7 +228,7 @@
 </li>
 </ul>
 <p>此外SS中也提到了如何用查询catalog来dedup事件的id以实现exactly once，并且可以通过bloom filter对查询进行优化（bloom filter只会产生false postive的查询结果，因此在duplication的占比小的情况下能减少对于catalog的查询）。但这些实现是由引擎自身决定的，比如Flink是利用checkpoint来实现在节点失败并replay时的exactly once。Flink将checkpoint插入在事件之间以实现在不间断的情况下对系统进行快照，当一个节点挂掉时，会把所有被波及的节点回滚到上一个checkpoint。Checkpoint之后的数据虽然在系统内部会不止一次经过节点，但是节点只会在某个checkpoint发生后，将这个checkpoint之前的数据反应给外部系统，所以对于外部系统来说，我们完全可以认为在上一个checkpoint发生后，且下一个checkpoint未发生之前的处理是不可见的。这部分数据就不会在外部系统中出现两次。</p>
-<p>另外一个有意思的点是SS提出了一个“表-流相对论”的概念，即表的增量（类似WAL）即是流，流积累起来就成了表。无论一个系统是基于流还是基于表，中间的过程都是流和表在不停交替（因为表到表必须经过流），系统只是做了将某部分抽象起来的决定，如一个基于表的系统会将所有的流处理都封装起来只暴露表的接口。</p>
+<p>另外一个有意思的点是SS提出了一个“表-流相对论”的概念：表的增量（类似WAL）是流，流的积累形成来表。无论一个系统是基于流还是基于表，中间的过程都是流和表在不停交替。系统只是做了将某部分抽象起来的决定。在一个基于表的系统中，当我们把数据从一个表提取出来并进行操作后写入另一个表，这一过程本身就包含了表-&gt;流-&gt;表的过程。而在一个基于流的系统中，那些被存储起来的状态实际上也就是表。而这些逻辑在这个系统的设计过程中被选择性地向用户隐藏了。</p>
 
     </div>
 
